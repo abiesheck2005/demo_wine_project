@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wine Classification</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Wine Classification</h1>
+
+    <p class="subtitle">
+        SVM Machine Learning Model
+    </p>
+
+    <form action="/predict" method="POST">
+
+        <div class="input-group">
+            <label>Alcohol</label>
+            <input type="number" step="any" name="alcohol" required>
+        </div>
+
+        <div class="input-group">
+            <label>Malic Acid</label>
+            <input type="number" step="any" name="malic_acid" required>
+        </div>
+
+        <div class="input-group">
+            <label>Ash</label>
+            <input type="number" step="any" name="ash" required>
+        </div>
+
+        <div class="input-group">
+            <label>Alcalinity of Ash</label>
+            <input type="number" step="any" name="alcalinity_of_ash" required>
+        </div>
+
+        <div class="input-group">
+            <label>Magnesium</label>
+            <input type="number" step="any" name="magnesium" required>
+        </div>
+
+        <div class="input-group">
+            <label>Total Phenols</label>
+            <input type="number" step="any" name="total_phenols" required>
+        </div>
+
+        <div class="input-group">
+            <label>Flavanoids</label>
+            <input type="number" step="any" name="flavanoids" required>
+        </div>
+
+        <div class="input-group">
+            <label>Nonflavanoid Phenols</label>
+            <input type="number" step="any" name="nonflavanoid_phenols" required>
+        </div>
+
+        <div class="input-group">
+            <label>Proanthocyanins</label>
+            <input type="number" step="any" name="proanthocyanins" required>
+        </div>
+
+        <div class="input-group">
+            <label>Color Intensity</label>
+            <input type="number" step="any" name="color_intensity" required>
+        </div>
+
+        <div class="input-group">
+            <label>Hue</label>
+            <input type="number" step="any" name="hue" required>
+        </div>
+
+        <div class="input-group">
+            <label>OD280 / OD315 of Diluted Wines</label>
+            <input type="number" step="any" name="od280_od315" required>
+        </div>
+
+        <div class="input-group">
+            <label>Proline</label>
+            <input type="number" step="any" name="proline" required>
+        </div>
+
+        <button type="submit">
+            Predict Wine Class
+        </button>
+
+    </form>
+
+    {% if prediction is defined %}
+
+    <div class="result">
+        <h2>Predicted Wine Class</h2>
+        <p>{{ prediction }}</p>
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

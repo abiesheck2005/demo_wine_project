@@ -9,7 +9,7 @@ app = Flask(__name__)
 model = pickle.load(open("svc_m.pkl", "rb"))
 
 # Load StandardScaler
-scaler = pickle.load(open("std.pkl", "rb"))
+scaler = pickle.load(open("sca.pkl", "rb"))
 
 
 @app.route("/")
@@ -74,3 +74,7 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+    
